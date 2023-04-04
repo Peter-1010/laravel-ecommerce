@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Sidebar Language Lines
+    | Profile Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during authentication for various

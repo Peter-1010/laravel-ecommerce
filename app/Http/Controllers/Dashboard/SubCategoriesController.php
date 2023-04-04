@@ -11,13 +11,13 @@ class SubCategoriesController extends Controller{
 
     public function index(){
 
-        $categories = Category::orderBy('id', 'DESC')->child()->paginate(PAGINATION_COUNT);
+        $categories = Category::orderBy('parent_id', 'DESC')->child()->paginate(PAGINATION_COUNT);
         return view('dashboard.subcategories.index', compact('categories'));
 
     }
 
     public function create(){
-        $categories = Category::parent()->orderBy('id', 'DESC')->get();
+        $categories = Category::orderBy('id', 'ASC')->get();
         return view('dashboard.subcategories.create', compact('categories'));
     }
 

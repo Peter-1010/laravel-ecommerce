@@ -24,5 +24,7 @@ return [
     'create new subcategory' => 'Create New Subcategory',
     'brands'                 => 'Brands',
     'add new brand'          => 'Add New Brand',
+    'tags'                   => 'Tags',
+    'add new tag'            => 'Add New Tag',
 
 ];

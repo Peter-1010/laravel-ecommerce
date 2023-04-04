@@ -2,7 +2,7 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-            <li class="nav-item active"><a href="{{route('admin.dashboard')}}"><i class="la la-mouse-pointer"></i><span
+            <li class="nav-item active"><a href="{{route('admin.dashboard')}}"><i class="la la-home"></i><span
                         class="menu-title" data-i18n="nav.add_on_drag_drop.main">{{__('admin/edit.main')}} </span></a>
             </li>
 
@@ -24,7 +24,7 @@
             </li>
 
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
+            <li class="nav-item"><a href=""><i class="la la-database"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/categories.main categories')}}  </span><span
                         class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Category::parent()->count() }}</span>
                 </a>
@@ -37,7 +37,7 @@
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
+            <li class="nav-item"><a href=""><i class="la la-table"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/categories.subcategories')}}</span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2">{{ \App\Models\Category::child()->count() }}</span>
@@ -52,16 +52,30 @@
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-male"></i>
+            <li class="nav-item"><a href=""><i class="la la-tag"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.brands')}}</span>
                     <span
-                        class="badge badge badge-success badge-pill float-right mr-2"></span>
+                        class="badge badge badge-success badge-pill float-right mr-2">{{ \App\Models\Brand::count() }}</span>
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href="{{route('admin.brands')}}"
                                           data-i18n="nav.dash.ecommerce">{{__('admin/sidebar.view all')}}</a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('admin/sidebar.add new brand')}}</a>
+                    <li><a class="menu-item" href="{{route('admin.brands.create')}}" data-i18n="nav.dash.crypto">{{__('admin/sidebar.add new brand')}}</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href=""><i class="la la-tags"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.tags')}}</span>
+                    <span
+                        class="badge badge badge-success badge-pill float-right mr-2">{{ \App\Models\Tag::count() }}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{route('admin.tags')}}"
+                                          data-i18n="nav.dash.ecommerce">{{__('admin/sidebar.view all')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.tags.create')}}" data-i18n="nav.dash.crypto">{{__('admin/sidebar.add new tag')}}</a>
                     </li>
                 </ul>
             </li>
@@ -97,7 +111,7 @@
             </li>
 
 
-            <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
+            <li class=" nav-item"><a href="#"><i class="la la-gears"></i><span class="menu-title"
                                                                                     data-i18n="nav.templates.main">{{__('admin/sidebar.settings')}}</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main"> {{__('admin/sidebar.shipping methods')}}</a>

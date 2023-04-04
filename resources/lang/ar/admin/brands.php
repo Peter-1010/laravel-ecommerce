@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Sidebar Language Lines
+    | Brands Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during authentication for various
@@ -14,39 +14,26 @@ return [
     */
 
     //Index Page
-    'all brands'     => 'جميع الماركات',
-    'category'            => 'القسم',
-    'category image'      => 'صورة القسم',
-    'name'                => 'الاسم',
-    'slug'                => 'اسم الرابط',
-    'active'              => 'مفعل',
-    'not active'          => 'غير مفغل',
-    'procedures'          => 'الاجراءات',
-    'status'              => 'الحالة',
-    'edit'                => 'تعديل',
-    'delete'              => 'حذف',
+    'all brands'  => 'جميع الماركات',
+    'brands'      => 'الماركات',
+    'brand image' => 'صورة الماركة',
+    'brand data'  => 'بيانات الماركة',
+    'name'        => 'الاسم',
+    'active'      => 'مفعل',
+    'not active'  => 'غير مفغل',
+    'procedures'  => 'الاجراءات',
+    'status'      => 'الحالة',
+    'edit'        => 'تعديل',
+    'delete'      => 'حذف',
 
     //Create Page
-    'create'        => 'اضافة قسم جديد',
+    'create'        => 'اضافة ماركة جديدة',
     'create button' => 'اضافة',
 
     //Edit Page
-    'edit main category' => 'تعديل قسم رئيسي',
-    'category data'      => 'بيانات القسم',
-    'update'             => 'تحديث',
-    'retreat'            => 'تراجع',
+    'edit brand' => 'تعديل الماركات',
+    'update'     => 'تحديث',
+    'retreat'    => 'تراجع',
 
-// Main Categories
-    //Index Page
-    'main category'     => 'القسم الرئيسي',
-    'subcategories'     => 'الاقسام الفرعية',
-    'all subcategories' => 'جميع الاقسام الفرعية',
-
-    //Create Page
-    'choose category'        => 'اختر القسم',
-    'please choose category' => 'من فضلك اختر القسم',
-
-    //Edit Page
-    'edit subcategory' => 'تعديل قسم فرعي',
 
 ];

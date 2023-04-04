@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Header Language Lines
+    | Index Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during authentication for various
@@ -25,6 +25,10 @@ return [
     'total'           => 'الاجمالي',
     'latest reviews'  => 'اخر التقيمات',
     'product'         => 'الاجمالي',
-    'rate'            => 'الاجمالي',
+    'rate'            => 'التقييم',
+    'copyright'       => 'حقوق النشر',
+    'year'            => '٢٠٢٣',
+    'peter'           => 'بيتر أنور',
+    'footer'          => 'جميع الحقوق محفوظة',
 
 ];

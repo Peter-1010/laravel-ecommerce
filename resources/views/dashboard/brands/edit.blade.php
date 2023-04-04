@@ -13,10 +13,10 @@
                                         href="{{route('admin.dashboard')}}">{{__('admin/edit.main')}} </a>
                                 </li>
                                 <li class="breadcrumb-item"><a
-                                        href="{{route('admin.maincategories')}}"> {{__('admin/categories.main categories')}} </a>
+                                        href="{{route('admin.brands')}}"> {{__('admin/brands.brands')}} </a>
                                 </li>
-                                <li class="breadcrumb-item active"> {{__('admin/categories.edit')}}
-                                    - {{$category -> name}}
+                                <li class="breadcrumb-item active"> {{__('admin/brands.edit')}}
+                                    - {{$brand -> name}}
                                 </li>
                             </ol>
                         </div>
@@ -48,25 +48,25 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{route('admin.maincategories.update',$category -> id)}}"
+                                              action="{{route('admin.brands.update',$brand -> id)}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
 
-                                            <input name="id" value="{{$category -> id}}" type="hidden">
+                                            <input name="id" value="{{$brand -> id}}" type="hidden">
 
                                             <div class="form-group">
                                                 <div class="text-center">
                                                     <img
-                                                        src=""
+                                                        src="{{$brand -> photo}}"
                                                         class="rounded-circle  height-150"
-                                                        alt="{{__('admin/categories.category image')}}">
+                                                        alt="{{__('admin/brands.brand image')}}">
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group">
-                                                <label>{{__('admin/categories.category image')}}</label>
+                                                <label>{{__('admin/brands.brand image')}}</label>
                                                 <label id="projectinput7" class="file center-block">
                                                     <input type="file" id="file" name="photo">
                                                     <span class="file-custom"></span>
@@ -79,15 +79,15 @@
                                             <div class="form-body">
 
                                                 <h4 class="form-section"><i
-                                                        class="ft-home"></i>{{__('admin/categories.category data')}}
+                                                        class="ft-home"></i>{{__('admin/brands.brand data')}}
                                                 </h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="name"> {{__('admin/categories.name')}}</label>
+                                                            <label for="name"> {{__('admin/brands.name')}}</label>
                                                             <input type="text" id="name"
                                                                    class="form-control"
-                                                                   value="{{$category -> name}}"
+                                                                   value="{{$brand -> name}}"
                                                                    name="name">
                                                             @error("name")
                                                             <span class="text-danger">{{$message}}</span>
@@ -95,19 +95,19 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="slug"> {{__('admin/categories.slug')}}</label>
-                                                            <input type="text" id="slug"
-                                                                   class="form-control"
-                                                                   value="{{$category -> slug}}"
-                                                                   name="slug">
-                                                            @error("slug")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div>
+{{--                                                    <div class="col-md-6">--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <label for="slug"> {{__('admin/categories.slug')}}</label>--}}
+{{--                                                            <input type="text" id="slug"--}}
+{{--                                                                   class="form-control"--}}
+{{--                                                                   value="{{$category -> slug}}"--}}
+{{--                                                                   name="slug">--}}
+{{--                                                            @error("slug")--}}
+{{--                                                            <span class="text-danger">{{$message}}</span>--}}
+{{--                                                            @enderror--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
 
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -116,9 +116,9 @@
                                                                    name="is_active"
                                                                    id="switcheryColor4"
                                                                    class="switchery" data-color="success"
-                                                                   @if($category -> is_active == 1)checked @endif/>
+                                                                   @if($brand -> is_active == 1)checked @endif/>
                                                             <label for="switcheryColor4"
-                                                                   class="card-title ml-1">{{__('admin/categories.status')}}</label>
+                                                                   class="card-title ml-1">{{__('admin/brands.status')}}</label>
 
                                                             @error("is_active")
                                                             <span class="text-danger">{{$message}}</span>
@@ -129,11 +129,11 @@
                                             </div>
                                             <div class="form-actions">
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> {{__('admin/categories.update')}}
+                                                    <i class="la la-check-square-o"></i> {{__('admin/brands.update')}}
                                                 </button>
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
-                                                    <i class="ft-x"></i> {{__('admin/categories.retreat')}}
+                                                    <i class="ft-x"></i> {{__('admin/brands.retreat')}}
                                                 </button>
                                             </div>
                                         </form>

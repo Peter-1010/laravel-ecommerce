@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Header Language Lines
+    | Index Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during authentication for various
@@ -26,5 +26,9 @@ return [
     'latest reviews'  => 'Latest Reviews',
     'product'         => 'Product',
     'rate'            => 'Rate',
+    'copyright'       => 'Copyright',
+    'year'            => '2023',
+    'peter'           => 'Peter Anwer',
+    'footer'          => 'All rights reserved.',
 
 ];

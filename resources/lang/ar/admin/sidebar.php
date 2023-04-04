@@ -24,5 +24,7 @@ return [
     'create new subcategory' => 'اضافة قسم فرعي جديد',
     'brands'                 => 'الماركات',
     'add new brand'          => 'اضافة ماركة جديدة',
+    'tags'                   => 'العلامات',
+    'add new tag'            => 'اضافة علامة جديدة',
 
 ];
