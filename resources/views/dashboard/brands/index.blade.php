@@ -48,8 +48,7 @@
                                             <thead class="">
                                             <tr>
                                                 <th>{{__('admin/brands.name')}}</th>
-{{--                                                <th>{{__('admin/brands.slug')}} </th>--}}
-                                                <th>{{__('admin/brands.status')}}</th>
+                                                <th>{{__('admin/brands.slug')}} </th>
                                                 <th>{{__('admin/brands.brand image')}}</th>
                                                 <th>{{__('admin/brands.procedures')}}</th>
                                             </tr>
@@ -60,8 +59,7 @@
                                                 @foreach($brands as $brand)
                                                     <tr>
                                                         <td>{{$brand -> name}}</td>
-{{--                                                        <td>{{$brand -> slug}}</td>--}}
-                                                        <td>{{$brand -> getActive()}}</td>
+                                                        <td>{{$brand -> slug}}</td>
                                                         <td><img style="width: 150px; height: 100px;" src="{{$brand->photo}}"></td>
                                                         <td>
                                                             <div class="btn-group" role="group"
