@@ -26,5 +26,6 @@ return [
     'add new brand'          => 'Add New Brand',
     'tags'                   => 'Tags',
     'add new tag'            => 'Add New Tag',
-
+    'products'               => 'Products',
+    'add new product'        => 'Add New Product',
 ];

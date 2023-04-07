@@ -26,5 +26,7 @@ return [
     'add new brand'          => 'اضافة ماركة جديدة',
     'tags'                   => 'العلامات',
     'add new tag'            => 'اضافة علامة جديدة',
+    'products'               => 'المنتجات',
+    'add new product'        => 'اضافة منتج جديد',
 
 ];

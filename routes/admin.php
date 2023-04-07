@@ -77,6 +77,17 @@ Route::group([
         });
         #################################  End Tags  ################################
 
+        ############################## Products Routes ##############################
+        Route::group(['prefix' => 'products'], function (){
+            Route::get('/', 'ProductsController@index')->name('admin.products');
+            Route::get('create', 'ProductsController@create')->name('admin.products.create');
+            Route::post('store', 'ProductsController@store')->name('admin.products.store');
+            Route::get('edit/{id}', 'ProductsController@edit')->name('admin.products.edit');
+            Route::post('update/{id}', 'ProductsController@update')->name('admin.products.update');
+            Route::get('delete/{id}', 'ProductsController@destroy')->name('admin.products.delete');
+        });
+        ###############################  End Products  ##############################
+
 
     });
 

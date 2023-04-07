@@ -59,4 +59,8 @@ class Product extends Model
         return $this->belongsToMany(Tag::class, 'product_tags');
     }
 
+    public function getActive(){
+        return $this->is_active == 0 ? __('admin/products.not active') : __('admin/products.active');
+    }
+
 }

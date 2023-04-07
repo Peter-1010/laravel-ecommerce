@@ -20,6 +20,8 @@ return [
     'required photo'       => 'الصورة مطلوب',
     'required parent_id'   => 'اسم القسم مطلوب',
     'required value'       => 'الاسم مطلوب',
+    'required description' => 'وصف المنتج مطلوب',
+    'required brand_id'    => 'الماركة مطلوبة',
     'email email'          => 'نمط البريد الالكتروني غير صحيح',
     'unique email'         => 'البريد الالكتروني موجود بالفعل',
     'unique slug'          => 'اسم الرابط موجود بالفعل',

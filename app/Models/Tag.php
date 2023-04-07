@@ -17,5 +17,4 @@ class Tag extends Model
 
     protected $hidden = ['translations'];
 
-
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ShippingsRequest;
 use App\Models\Setting;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class SettingsController extends Controller{
@@ -24,6 +23,14 @@ class SettingsController extends Controller{
         }
 
         return view('dashboard.settings.shipping.edit', compact('shipping'));
+
+    }
+
+    public function updateShippingMethods(ShippingsRequest $request, $id){
+        $setting = Setting::find($id);
+        $setting->update($request->except('_token', 'id', 'method'));
+
+        return view('dashboard.index');
 
     }
 
