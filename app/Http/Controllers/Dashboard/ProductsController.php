@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PriceProductRequest;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\StockProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -15,7 +17,7 @@ class ProductsController extends Controller{
     public function index(){
 
         $products = Product::select('id', 'slug', 'price', 'created_at')->paginate(PAGINATION_COUNT);
-        return view('dashboard.products.index', compact('products'));
+        return view('dashboard.products.general.index', compact('products'));
 
     }
 
@@ -25,7 +27,7 @@ class ProductsController extends Controller{
         $data['tags'] = Tag::select('id')->get();
         $data['categories'] = Category::active()->select('id')->get();
 
-        return view('dashboard.products.create', compact('data'));
+        return view('dashboard.products.general.create', compact('data'));
     }
 
     public function store(ProductRequest $request){
@@ -61,6 +63,51 @@ class ProductsController extends Controller{
         }
     }
 
+    public function getPrice($product_id){
+        return view('dashboard.products.prices.create') -> with('id', $product_id);
+    }
+
+    public function storePrice(PriceProductRequest $request){
+
+        try {
+
+            $product = Product::find($request->product_id);
+            $product->update($request->only([
+                'price',
+                'special_price',
+                'special_price_type',
+                'special_price_start',
+                'special_price_end'
+            ]));
+
+            return redirect()->route('admin.products')->with(['success' => __('admin/messages.created successfully')]);
+
+        }catch (\Exception $exception){
+            return redirect()->back()->with(['error' => __('admin/messages.error')]);
+        }
+
+    }
+
+    public function getStock($product_id){
+        return view('dashboard.products.stock.create') -> with('id', $product_id);
+    }
+
+    public function storeStock(StockProductRequest $request){
+//dd($request->request);
+
+        try {
+
+            $product = Product::find($request->product_id);
+            $product->update($request->except(['_token']));
+
+            return redirect()->route('admin.products')->with(['success' => __('admin/messages.created successfully')]);
+
+        }catch (\Exception $exception){
+            return redirect()->back()->with(['error' => __('admin/messages.error')]);
+        }
+
+    }
+
     public function edit($product_id){
 
         $product = Product::orderBy('id', 'DESC')->find($product_id);
@@ -69,7 +116,7 @@ class ProductsController extends Controller{
             return redirect()->route('admin.products')->with(['error' => __('admin/messages.product not found')]);
         }
 
-        return view('dashboard.products.edit', compact('product'));
+        return view('dashboard.products.prices.edit', compact('product'));
 
     }
 

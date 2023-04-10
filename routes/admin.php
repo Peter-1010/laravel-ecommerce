@@ -82,8 +82,10 @@ Route::group([
             Route::get('/', 'ProductsController@index')->name('admin.products');
             Route::get('create', 'ProductsController@create')->name('admin.products.create');
             Route::post('store', 'ProductsController@store')->name('admin.products.store');
-            Route::get('edit/{id}', 'ProductsController@edit')->name('admin.products.edit');
-            Route::post('update/{id}', 'ProductsController@update')->name('admin.products.update');
+            Route::get('price/{id}', 'ProductsController@getPrice')->name('admin.products.price');
+            Route::post('price', 'ProductsController@storePrice')->name('admin.products.price.store');
+            Route::get('stock/{id}', 'ProductsController@getStock')->name('admin.products.stock');
+            Route::post('stock', 'ProductsController@storeStock')->name('admin.products.stock.store');
             Route::get('delete/{id}', 'ProductsController@destroy')->name('admin.products.delete');
         });
         ###############################  End Products  ##############################

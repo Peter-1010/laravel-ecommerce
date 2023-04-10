@@ -13,10 +13,9 @@
                                         href="{{route('admin.dashboard')}}">{{__('admin/edit.main')}} </a>
                                 </li>
                                 <li class="breadcrumb-item"><a
-                                        href="{{route('admin.maincategories')}}"> {{__('admin/categories.main categories')}} </a>
+                                        href="{{route('admin.products')}}"> {{__('admin/products.products')}} </a>
                                 </li>
-                                <li class="breadcrumb-item active"> {{__('admin/categories.edit')}}
-                                    - {{$category -> name}}
+                                <li class="breadcrumb-item active"> {{__('admin/products.create')}}
                                 </li>
                             </ol>
                         </div>
@@ -31,7 +30,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title"
-                                        id="basic-layout-form"> {{__('admin/categories.edit main category')}} </h4>
+                                        id="basic-layout-form"> {{__('admin/products.add new product')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -48,48 +47,27 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{route('admin.maincategories.update',$category -> id)}}"
+                                              action="{{route('admin.products.price.store')}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
 
-                                            <input name="id" value="{{$category -> id}}" type="hidden">
-
-                                            <div class="form-group">
-                                                <div class="text-center">
-                                                    <img
-                                                        src=""
-                                                        class="rounded-circle  height-150"
-                                                        alt="{{__('admin/categories.category image')}}">
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label>{{__('admin/categories.category image')}}</label>
-                                                <label id="projectinput7" class="file center-block">
-                                                    <input type="file" id="file" name="photo">
-                                                    <span class="file-custom"></span>
-                                                </label>
-                                                @error('photo')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
+                                            <input type="hidden" name="product_id" value="{{$id}}">
 
                                             <div class="form-body">
 
                                                 <h4 class="form-section"><i
-                                                        class="ft-home"></i>{{__('admin/categories.category data')}}
+                                                        class="ft-home"></i>{{__('admin/products.product data')}}
                                                 </h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="name"> {{__('admin/categories.name')}}</label>
-                                                            <input type="text" id="name"
+                                                            <label for="price"> {{__('admin/products.price')}}</label>
+                                                            <input type="number" id="price"
                                                                    class="form-control"
-                                                                   value="{{$category -> name}}"
-                                                                   name="name">
-                                                            @error("name")
+                                                                   value="{{old('price')}}"
+                                                                   name="price">
+                                                            @error("price")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -97,12 +75,12 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="slug"> {{__('admin/categories.slug')}}</label>
-                                                            <input type="text" id="slug"
+                                                            <label for="special_price"> {{__('admin/products.special_price')}}</label>
+                                                            <input type="number" id="special_price"
                                                                    class="form-control"
-                                                                   value="{{$category -> slug}}"
-                                                                   name="slug">
-                                                            @error("slug")
+                                                                   value="{{old('special_price')}}"
+                                                                   name="special_price">
+                                                            @error("special_price")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -110,30 +88,67 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group mt-1">
-                                                            <input type="checkbox" value="1"
-                                                                   name="is_active"
-                                                                   id="switcheryColor4"
-                                                                   class="switchery" data-color="success"
-                                                                   @if($category -> is_active == 1)checked @endif/>
-                                                            <label for="switcheryColor4"
-                                                                   class="card-title ml-1">{{__('admin/categories.status')}}</label>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="special_price_type">{{__('admin/products.type of price')}}
+                                                            </label>
+                                                            <select name="special_price_type" class="select2 form-control">
+                                                                <optgroup label="{{__('admin/products.choose price type')}}">
+                                                                    <option value="percent">{{__('admin/products.percent')}}</option>
+                                                                    <option value="fixed">{{__('admin/products.fixed')}}</option>
+                                                                </optgroup>
+                                                            </select>
+                                                            @error('special_price_type')
+                                                            <span class="text-danger"> {{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
 
-                                                            @error("is_active")
-                                                            <span class="text-danger">{{$message}}</span>
+
+                                                </div>
+
+
+                                                <div class="row" >
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="special_price_start">{{__('admin/products.started at')}}
+                                                            </label>
+
+                                                            <input type="date" id="price"
+                                                                   class="form-control"
+                                                                   value="{{old('special_price_start')}}"
+                                                                   name="special_price_start">
+
+                                                            @error('special_price_start')
+                                                            <span class="text-danger"> {{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="special_price_end">{{__('admin/products.ended at')}}
+                                                            </label>
+                                                            <input type="date" id="price"
+                                                                   class="form-control"
+                                                                   value="{{old('special_price_end')}}"
+                                                                   name="special_price_end">
+
+                                                            @error('special_price_end')
+                                                            <span class="text-danger"> {{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                             <div class="form-actions">
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> {{__('admin/categories.update')}}
+                                                    <i class="la la-check-square-o"></i> {{__('admin/products.save')}}
                                                 </button>
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
-                                                    <i class="ft-x"></i> {{__('admin/categories.retreat')}}
+                                                    <i class="ft-x"></i> {{__('admin/products.retreat')}}
                                                 </button>
                                             </div>
                                         </form>

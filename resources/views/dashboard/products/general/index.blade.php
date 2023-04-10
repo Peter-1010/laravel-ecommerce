@@ -71,14 +71,14 @@
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('admin.products.edit',$product -> id)}}"
+                                                                <a href="{{route('admin.products.price',$product -> id)}}"
                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('admin/products.price')}}</a>
 
-                                                                <a href="{{route('admin.products.edit',$product -> id)}}"
+                                                                <a href="{{route('admin.products.price',$product -> id)}}"
                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('admin/products.product image')}}</a>
 
-                                                                <a href="{{route('admin.products.edit',$product -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('admin/products.edit')}}</a>
+                                                                <a href="{{route('admin.products.stock',$product -> id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('admin/products.warehouse')}}</a>
 
 
                                                                 <a href="{{route('admin.products.delete',$product -> id)}}"
