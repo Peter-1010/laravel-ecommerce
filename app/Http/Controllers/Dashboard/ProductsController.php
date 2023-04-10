@@ -93,12 +93,11 @@ class ProductsController extends Controller{
     }
 
     public function storeStock(StockProductRequest $request){
-//dd($request->request);
 
         try {
 
             $product = Product::find($request->product_id);
-            $product->update($request->except(['_token']));
+            $product->update($request->except(['_token', 'product_id']));
 
             return redirect()->route('admin.products')->with(['success' => __('admin/messages.created successfully')]);
 
