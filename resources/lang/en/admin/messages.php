@@ -26,6 +26,7 @@ return [
     'required product_id'   => 'ID is required',
     'required manage_stock' => 'Warehouse tracking is required',
     'required in_stock'     => 'Product status is required',
+    'required document'     => 'Images is required',
     'required_if qty'       => 'Quantity is required',
     'email email'           => 'Email must be an email ex:"abc@123.example"',
     'unique email'          => 'This email has already been taken',

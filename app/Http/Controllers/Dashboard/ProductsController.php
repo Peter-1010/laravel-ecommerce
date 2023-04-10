@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ImagesProductRequest;
 use App\Http\Requests\PriceProductRequest;
 use App\Http\Requests\ProductRequest;
 use App\Http\Requests\StockProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Tag;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller{
@@ -107,42 +110,42 @@ class ProductsController extends Controller{
 
     }
 
-    public function edit($product_id){
+    public function addImages($product_id){
+        return view('dashboard.products.images.create') -> withId( $product_id);
+    }
 
-        $product = Product::orderBy('id', 'DESC')->find($product_id);
+    public function saveImage(Request $request){
 
-        if (!$product){
-            return redirect()->route('admin.products')->with(['error' => __('admin/messages.product not found')]);
-        }
+        $file  = $request -> file('dzfile');
+        $fileName = uploadImage('products', $file);
 
-        return view('dashboard.products.prices.edit', compact('product'));
+        return response()->json([
+            'name' => $fileName,
+            'original_name' => $file->getClientOriginalName()
+        ]);
 
     }
 
-    public function update(ProductRequest $request, $product_id){
+    public function saveImageDB(ImagesProductRequest $request){
 
         try {
 
-            if (!$request->has('is_active'))
-                $request->request->add(['is_active' => 0]);
-            else
-                $request->request->add(['is_active' => 1]);
+            if ($request->has('document') && count($request->document) > 0){
+                foreach ($request->document as $image){
+                    Image::create([
+                        'product_id' => $request->product_id,
+                        'photo'      => $image
+                    ]);
+                }
 
-            $product = Product::find($product_id);
+                return redirect()->route('admin.products')->with(['success' => __('admin/messages.created successfully')]);
 
-            if (!$product){
-                return redirect()->back()->with(['error' => __('admin/messages.product not found')]);
             }
-
-            $product->update($request->all());
-            $product->name = $request->name;
-            $product->save();
-
-            return redirect()->route('admin.products')->with(['success' => __('admin/messages.success')]);
 
         }catch (\Exception $exception){
             return redirect()->back()->with(['error' => __('admin/messages.error')]);
         }
+
     }
 
     public function destroy($product_id){

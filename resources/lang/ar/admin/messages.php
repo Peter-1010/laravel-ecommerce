@@ -26,6 +26,7 @@ return [
     'required product_id'   => 'ID مطلوب',
     'required manage_stock' => 'تتبع المستودع مطلوب',
     'required in_stock'     => 'حالة المنتج مطلوبة',
+    'required document'     => 'الصور مطلوبة',
     'required_if qty'       => 'الكمية مطلوبة',
     'email email'           => 'نمط البريد الالكتروني غير صحيح',
     'unique email'          => 'البريد الالكتروني موجود بالفعل',

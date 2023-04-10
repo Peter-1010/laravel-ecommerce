@@ -80,12 +80,20 @@ Route::group([
         ############################## Products Routes ##############################
         Route::group(['prefix' => 'products'], function (){
             Route::get('/', 'ProductsController@index')->name('admin.products');
+
             Route::get('create', 'ProductsController@create')->name('admin.products.create');
             Route::post('store', 'ProductsController@store')->name('admin.products.store');
+
             Route::get('price/{id}', 'ProductsController@getPrice')->name('admin.products.price');
             Route::post('price', 'ProductsController@storePrice')->name('admin.products.price.store');
+
             Route::get('stock/{id}', 'ProductsController@getStock')->name('admin.products.stock');
             Route::post('stock', 'ProductsController@storeStock')->name('admin.products.stock.store');
+
+            Route::get('images/{id}', 'ProductsController@addImages')->name('admin.products.image');
+            Route::post('image', 'ProductsController@saveImage')->name('admin.products.image.store');
+            Route::post('image/DB', 'ProductsController@saveImageDB')->name('admin.products.image.store.db');
+
             Route::get('delete/{id}', 'ProductsController@destroy')->name('admin.products.delete');
         });
         ###############################  End Products  ##############################
