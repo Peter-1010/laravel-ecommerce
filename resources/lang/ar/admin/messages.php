@@ -46,5 +46,10 @@ return [
     'category not found'    => 'هذا القسم غير موجود',
     'brand not found'       => 'هذه الماركة غير موجودة',
     'tag not found'         => 'هذه العلامة غير موجودة',
-
+    'website not supported' => 'المتصفح الخاص بكم لا يدعم خاصيه تعدد الصوره والسحب والافلات',
+    'can not uploaded'      => 'لايمكنك رفع هذا النوع من الملفات',
+    'cancel uploading'      => 'الغاء الرفع',
+    'uploaded message'      => 'هل انت متاكد من الغاء رفع الملفات ؟',
+    'remove image'          => 'حذف الصوره',
+    'big count'             => 'لايمكنك رفع عدد اكثر من هذا',
 ];

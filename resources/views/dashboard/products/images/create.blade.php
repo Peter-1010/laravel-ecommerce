@@ -56,10 +56,10 @@
 
                                             <div class="form-body">
 
-                                                <h4 class="form-section"><i class="ft-home"></i> صور المنتج </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> {{__('admin/products.product image')}} </h4>
                                                 <div class="form-group">
                                                     <div id="dpz-multiple-files" class="dropzone dropzone-area">
-                                                        <div class="dz-message">يمكنك رفع اكثر من صوره هنا</div>
+                                                        <div class="dz-message">{{__('admin/products.you can upload more than image')}}</div>
                                                     </div>
                                                     <br><br>
                                                 </div>
@@ -96,7 +96,6 @@
 
 
     <script>
-//Todo Translate messages
         var uploadedDocumentMap = {}
         Dropzone.options.dpzMultipleFiles = {
             paramName: "dzfile", // The name that will be used to transfer the file
@@ -105,12 +104,12 @@
             clickable: true,
             addRemoveLinks: true,
             acceptedFiles: 'image/*',
-            dictFallbackMessage: " المتصفح الخاص بكم لا يدعم خاصيه تعدد الصوره والسحب والافلات ",
-            dictInvalidFileType: "لايمكنك رفع هذا النوع من الملفات ",
-            dictCancelUpload: "الغاء الرفع ",
-            dictCancelUploadConfirmation: " هل انت متاكد من الغاء رفع الملفات ؟ ",
-            dictRemoveFile: "حذف الصوره",
-            dictMaxFilesExceeded: "لايمكنك رفع عدد اكثر من هضا ",
+            dictFallbackMessage: {{__('admin/messages.website not supported')}},
+            dictInvalidFileType: {{__('admin/messages.can not uploaded')}},
+            dictCancelUpload: {{__('admin/messages.cancel uploading')}},
+            dictCancelUploadConfirmation: {{__('admin/messages.uploaded message')}} "  ",
+            dictRemoveFile: {{__('admin/messages.remove image')}} ,
+            dictMaxFilesExceeded: {{__('admin/messages.big count')}} ,
             headers: {
                 'X-CSRF-TOKEN':
                     "{{ csrf_token() }}"

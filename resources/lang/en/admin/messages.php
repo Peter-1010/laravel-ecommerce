@@ -46,5 +46,11 @@ return [
     'category not found'    => 'This category is not found',
     'brand not found'       => 'This brand is not found',
     'tag not found'         => 'This tag is not found',
+    'website not supported' => 'Your website don\'t support multi-image feature, drag and drop',
+    'can not uploaded'      => 'Cann\'t upload this type of files',
+    'cancel uploading'      => 'Cancel uploading',
+    'uploaded message'      => 'Are you sure ? You want to cancel upload ?',
+    'remove image'          => 'Remove image',
+    'big count'             => 'You cannot upload more than this',
 
 ];

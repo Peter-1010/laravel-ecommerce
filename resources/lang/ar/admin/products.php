@@ -68,4 +68,8 @@ return [
     'in stock'                  => 'متاح',
     'out of stock'              => 'غير متاح',
 
+    //Images Page
+    'you can upload more than image' => 'يمكنك رفع اكثر من صوره هنا',
+
+
 ];
