@@ -17,5 +17,8 @@ class Attribute extends Model
 
     protected $hidden = ['translations'];
 
+    public function options(){
+        return $this->hasMany(Option::class, 'attribute_id');
+    }
 
 }

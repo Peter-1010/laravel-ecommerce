@@ -59,8 +59,16 @@ class Product extends Model
         return $this->belongsToMany(Tag::class, 'product_tags');
     }
 
+    public function options(){
+        return $this->hasMany(Option::class, 'product_id');
+    }
+
     public function getActive(){
         return $this->is_active == 0 ? __('admin/products.not active') : __('admin/products.active');
+    }
+
+    public function scopeActive($query){
+        return $query->where('is_active', 1);
     }
 
 }

@@ -28,4 +28,9 @@ return [
     'add new tag'            => 'Add New Tag',
     'products'               => 'Products',
     'add new product'        => 'Add New Product',
+    'product attributes'     => 'Product Attributes',
+    'add new attribute'      => 'Add New Attribute',
+    'options'                => 'Options Values',
+    'add new option'         => 'Add New Option Value',
+
 ];

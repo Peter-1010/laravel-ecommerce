@@ -13,10 +13,10 @@
                                         href="{{route('admin.dashboard')}}">{{__('admin/edit.main')}} </a>
                                 </li>
                                 <li class="breadcrumb-item"><a
-                                        href="{{route('admin.brands')}}"> {{__('admin/brands.brands')}} </a>
+                                        href="{{route('admin.options')}}"> {{__('admin/options.options')}} </a>
                                 </li>
-                                <li class="breadcrumb-item active"> {{__('admin/brands.edit')}}
-                                    - {{$brand -> name}}
+                                <li class="breadcrumb-item active"> {{__('admin/options.edit')}}
+                                    - {{$option -> name}}
                                 </li>
                             </ol>
                         </div>
@@ -31,7 +31,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title"
-                                        id="basic-layout-form"> {{__('admin/brands.edit brand')}} </h4>
+                                        id="basic-layout-form"> {{__('admin/options.edit option')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -48,25 +48,25 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{route('admin.brands.update',$brand -> id)}}"
+                                              action="{{route('admin.options.update',$option -> id)}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
 
-                                            <input name="id" value="{{$brand -> id}}" type="hidden">
+                                            <input name="id" value="{{$option -> id}}" type="hidden">
 
                                             <div class="form-group">
                                                 <div class="text-center">
                                                     <img
-                                                        src="{{$brand -> photo}}"
+                                                        src="{{$option -> photo}}"
                                                         class="rounded-circle  height-150"
-                                                        alt="{{__('admin/brands.brand image')}}">
+                                                        alt="{{__('admin/options.option image')}}">
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group">
-                                                <label>{{__('admin/brands.brand image')}}</label>
+                                                <label>{{__('admin/options.option image')}}</label>
                                                 <label id="projectinput7" class="file center-block">
                                                     <input type="file" id="file" name="photo">
                                                     <span class="file-custom"></span>
@@ -79,15 +79,15 @@
                                             <div class="form-body">
 
                                                 <h4 class="form-section"><i
-                                                        class="ft-home"></i>{{__('admin/brands.brand data')}}
+                                                        class="ft-home"></i>{{__('admin/options.option data')}}
                                                 </h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="name"> {{__('admin/brands.name')}}</label>
+                                                            <label for="name"> {{__('admin/options.name')}}</label>
                                                             <input type="text" id="name"
                                                                    class="form-control"
-                                                                   value="{{$brand -> name}}"
+                                                                   value="{{$option -> name}}"
                                                                    name="name">
                                                             @error("name")
                                                             <span class="text-danger">{{$message}}</span>
@@ -116,9 +116,9 @@
                                                                    name="is_active"
                                                                    id="switcheryColor4"
                                                                    class="switchery" data-color="success"
-                                                                   @if($brand -> is_active == 1)checked @endif/>
+                                                                   @if($option -> is_active == 1)checked @endif/>
                                                             <label for="switcheryColor4"
-                                                                   class="card-title ml-1">{{__('admin/brands.status')}}</label>
+                                                                   class="card-title ml-1">{{__('admin/options.status')}}</label>
 
                                                             @error("is_active")
                                                             <span class="text-danger">{{$message}}</span>
@@ -129,11 +129,11 @@
                                             </div>
                                             <div class="form-actions">
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> {{__('admin/brands.update')}}
+                                                    <i class="la la-check-square-o"></i> {{__('admin/options.update')}}
                                                 </button>
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
-                                                    <i class="ft-x"></i> {{__('admin/brands.retreat')}}
+                                                    <i class="ft-x"></i> {{__('admin/options.retreat')}}
                                                 </button>
                                             </div>
                                         </form>

@@ -25,4 +25,8 @@ class Brand extends Model
         return $query -> where('is_active', 1);
     }
 
+    public function getActive(){
+        return $this->is_active == 0 ? __('admin/products.not active') : __('admin/products.active');
+    }
+
 }

@@ -2,7 +2,7 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-            <li class="nav-item active"><a href="{{route('admin.dashboard')}}"><i class="la la-home"></i><span
+            <li class="nav-item active"><a href="{{route('admin.dashboard')}}"><i class="la la-x"></i><span
                         class="menu-title" data-i18n="nav.add_on_drag_drop.main">{{__('admin/edit.main')}} </span></a>
             </li>
 
@@ -91,6 +91,36 @@
                                           data-i18n="nav.dash.ecommerce">{{__('admin/sidebar.view all')}}</a>
                     </li>
                     <li><a class="menu-item" href="{{route('admin.products.create')}}" data-i18n="nav.dash.crypto">{{__('admin/sidebar.add new product')}}</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="nav-item"><a href=""><i class="la la-database"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.product attributes')}}</span>
+                    <span
+                        class="badge badge badge-warning  badge-pill float-right mr-2">{{\App\Models\Attribute::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{route('admin.attributes')}}"
+                                          data-i18n="nav.dash.ecommerce">{{__('admin/sidebar.view all')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.attributes.create')}}" data-i18n="nav.dash.crypto">{{__('admin/sidebar.add new attribute')}}</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="nav-item"><a href=""><i class="la la-check-circle"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.options')}}</span>
+                    <span
+                        class="badge badge badge-warning  badge-pill float-right mr-2">{{\App\Models\Option::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{route('admin.options')}}"
+                                          data-i18n="nav.dash.ecommerce">{{__('admin/sidebar.view all')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.options.create')}}" data-i18n="nav.dash.crypto">{{__('admin/sidebar.add new option')}}</a>
                     </li>
                 </ul>
             </li>
