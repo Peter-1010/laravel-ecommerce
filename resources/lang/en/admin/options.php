@@ -34,5 +34,7 @@ return [
     'please choose attributes' => 'Please Choose Attributes',
     'option data'              => 'Option Data',
 
-
+    //Edit Page
+    'edit options' => 'Edit Options',
+    'update'      => 'Update',
 ];

@@ -32,6 +32,8 @@ return [
     'add new attribute'      => 'اضافة خاصية جديدة',
     'options'                => 'قيم الخصائص',
     'add new option'         => 'اضافة قيمة جديدة',
+    'slider'                 => 'الاسليدر',
+    'slider images'          => 'صور الاسليدر',
 
 
 ];

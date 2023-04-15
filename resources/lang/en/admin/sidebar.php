@@ -32,5 +32,7 @@ return [
     'add new attribute'      => 'Add New Attribute',
     'options'                => 'Options Values',
     'add new option'         => 'Add New Option Value',
+    'slider'                 => 'Slider',
+    'slider images'          => 'Slider Images',
 
 ];

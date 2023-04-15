@@ -56,86 +56,41 @@ class OptionsController extends Controller{
         }
     }
 
-    public function getPrice($option_id){
-        return view('dashboard.options.prices.create') -> with('id', $option_id);
-    }
+    public function edit($option_id){
 
-    public function storePrice(OptionRequest $request){
+        $data = [];
+        $data['option'] = Option::find($option_id);
 
-        try {
-
-            $option = Option::find($request->option_id);
-            $option->update($request->only([
-                'price',
-                'special_price',
-                'special_price_type',
-                'special_price_start',
-                'special_price_end'
-            ]));
-
-            return redirect()->route('admin.options')->with(['success' => __('admin/messages.created successfully')]);
-
-        }catch (\Exception $exception){
-            return redirect()->back()->with(['error' => __('admin/messages.error')]);
+        if (!$data['option']){
+            return redirect()->route('admin.options')->with(['error' => __('admin/messages.option not found')]);
         }
 
+        $data['products']   = Product::active()->select('id')->get();
+        $data['attributes'] = Attribute::select('id')->get();
+
+        return view('dashboard.options.edit', $data);
+
     }
 
-    public function getStock($option_id){
-        return view('dashboard.options.stock.create') -> with('id', $option_id);
-    }
-
-    public function storeStock(StockOptionRequest $request){
+    public function update(OptionRequest $request, $option_id){
 
         try {
 
-            $option = Option::find($request->option_id);
-            $option->update($request->except(['_token', 'option_id']));
+            $options = Option::find($option_id);
 
-            return redirect()->route('admin.options')->with(['success' => __('admin/messages.created successfully')]);
-
-        }catch (\Exception $exception){
-            return redirect()->back()->with(['error' => __('admin/messages.error')]);
-        }
-
-    }
-
-    public function addImages($option_id){
-        return view('dashboard.options.images.create') -> withId( $option_id);
-    }
-
-    public function saveImage(Request $request){
-
-        $file  = $request -> file('dzfile');
-        $fileName = uploadImage('options', $file);
-
-        return response()->json([
-            'name' => $fileName,
-            'original_name' => $file->getClientOriginalName()
-        ]);
-
-    }
-
-    public function saveImageDB(ImagesOptionRequest $request){
-
-        try {
-
-            if ($request->has('document') && count($request->document) > 0){
-                foreach ($request->document as $image){
-                    Image::create([
-                        'option_id' => $request->option_id,
-                        'photo'      => $image
-                    ]);
-                }
-
-                return redirect()->route('admin.options')->with(['success' => __('admin/messages.created successfully')]);
-
+            if (!$options){
+                return redirect()->back()->with(['error' => __('admin/messages.options not found')]);
             }
 
+            $options->update($request->only(['price', 'product_id', 'attribute_id']));
+            $options->name = $request->name;
+            $options->save();
+
+            return redirect()->route('admin.options')->with(['success' => __('admin/messages.success')]);
+
         }catch (\Exception $exception){
             return redirect()->back()->with(['error' => __('admin/messages.error')]);
         }
-
     }
 
     public function destroy($option_id){

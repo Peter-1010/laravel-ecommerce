@@ -31,7 +31,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title"
-                                        id="basic-layout-form"> {{__('admin/options.edit option')}} </h4>
+                                        id="basic-layout-form"> {{__('admin/options.edit options')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -55,27 +55,6 @@
 
                                             <input name="id" value="{{$option -> id}}" type="hidden">
 
-                                            <div class="form-group">
-                                                <div class="text-center">
-                                                    <img
-                                                        src="{{$option -> photo}}"
-                                                        class="rounded-circle  height-150"
-                                                        alt="{{__('admin/options.option image')}}">
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label>{{__('admin/options.option image')}}</label>
-                                                <label id="projectinput7" class="file center-block">
-                                                    <input type="file" id="file" name="photo">
-                                                    <span class="file-custom"></span>
-                                                </label>
-                                                @error('photo')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
-
                                             <div class="form-body">
 
                                                 <h4 class="form-section"><i
@@ -95,38 +74,71 @@
                                                         </div>
                                                     </div>
 
-{{--                                                    <div class="col-md-6">--}}
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <label for="slug"> {{__('admin/categories.slug')}}</label>--}}
-{{--                                                            <input type="text" id="slug"--}}
-{{--                                                                   class="form-control"--}}
-{{--                                                                   value="{{$category -> slug}}"--}}
-{{--                                                                   name="slug">--}}
-{{--                                                            @error("slug")--}}
-{{--                                                            <span class="text-danger">{{$message}}</span>--}}
-{{--                                                            @enderror--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-
-                                                <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="form-group mt-1">
-                                                            <input type="checkbox" value="1"
-                                                                   name="is_active"
-                                                                   id="switcheryColor4"
-                                                                   class="switchery" data-color="success"
-                                                                   @if($option -> is_active == 1)checked @endif/>
-                                                            <label for="switcheryColor4"
-                                                                   class="card-title ml-1">{{__('admin/options.status')}}</label>
-
-                                                            @error("is_active")
+                                                        <div class="form-group">
+                                                            <label for="price"> {{__('admin/options.price')}}</label>
+                                                            <input type="number" id="price"
+                                                                   class="form-control"
+                                                                   value="{{$option -> price}}"
+                                                                   name="price">
+                                                            @error("price")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label
+                                                            for="projectinput1">{{__('admin/options.choose product')}}
+                                                        </label>
+                                                        <select name="product_id" class="select2 form-control">
+                                                            <optgroup
+                                                                label="{{__('admin/options.please choose product')}}">
+                                                                @if($products && $products -> count() > 0)
+                                                                    @foreach($products as $product)
+                                                                        <option
+                                                                            value="{{$product -> id }}"
+                                                                            @if($product -> id == $option -> product_id) selected @endif
+                                                                            >{{$product -> name}}</option>
+                                                                    @endforeach
+                                                                @endif
+                                                            </optgroup>
+                                                        </select>
+                                                        @error('products')
+                                                        <span class="text-danger"> {{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label
+                                                            for="projectinput1">{{__('admin/options.choose attributes')}}
+                                                        </label>
+                                                        <select name="attribute_id" class="select2 form-control">
+                                                            <optgroup
+                                                                label="{{__('admin/options.please choose attributes')}}">
+                                                                @if($attributes && $attributes -> count() > 0)
+                                                                    @foreach($attributes as $attribute)
+                                                                        <option
+                                                                            value="{{$attribute -> id }}"
+                                                                            @if($attribute -> id == $option -> attribute_id) selected @endif
+                                                                        >{{$attribute -> name}}</option>
+                                                                    @endforeach
+                                                                @endif
+                                                            </optgroup>
+                                                        </select>
+                                                        @error('attributes')
+                                                        <span class="text-danger"> {{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="form-actions">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="la la-check-square-o"></i> {{__('admin/options.update')}}

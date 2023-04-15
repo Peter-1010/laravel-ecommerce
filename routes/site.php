@@ -13,3 +13,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+], function() {
+
+    Auth::routes();
+
+    Route::get('/', 'Site\HomeController@home')->name('home');
+
+    Route::group(['namespace' => 'Site', 'middleware' => 'guest'], function () {
+
+        Route::get('category/{cat-name}', 'HomeController@home')->name('category');
+
+    });
+
+
+    Route::group([
+        'namespace' => 'Site',
+        'middleware' => ['auth', 'verifyUser']
+    ], function () {
+
+        Route::get('/test', function () {
+            return 'verified';
+        });
+
+    });
+
+    Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
+
+        Route::post('verified-user', 'VerificationCodeController@verify')->name('verified.user');
+        Route::get('verify', 'VerificationCodeController@getVerifyPage')->name('verification');
+
+    });
+
+
+
+
+});

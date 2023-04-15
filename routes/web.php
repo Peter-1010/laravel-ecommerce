@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
     Route::get('test', function () {
     return \App\Models\Category::find(4)->makeVisible(['translations']);
 });
+
+
+//Route::get('/home', 'HomeController@index')->name('home');

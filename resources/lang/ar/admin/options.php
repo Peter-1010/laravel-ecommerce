@@ -34,8 +34,8 @@ return [
     'please choose attributes' => 'منفضلك اختر الخاصية',
     'option data'              => 'البيانات الاساسية للخاصية',
 
-    //Price Create Page
-    'save'              => 'حفظ',
-
+    //Edit Page
+    'edit options' => 'تحديث الخصائص',
+    'update'       => 'تحديث',
 
 ];

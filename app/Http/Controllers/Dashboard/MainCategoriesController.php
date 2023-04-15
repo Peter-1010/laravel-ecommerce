@@ -56,7 +56,7 @@ class MainCategoriesController extends Controller{
 
     }
 
-    public function update(MainCategoryRequist $request, $category_id){
+    public function update(MainCategoryRequest $request, $category_id){
 
         try {
 

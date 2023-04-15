@@ -104,12 +104,12 @@
             clickable: true,
             addRemoveLinks: true,
             acceptedFiles: 'image/*',
-            dictFallbackMessage: {{__('admin/messages.website not supported')}},
-            dictInvalidFileType: {{__('admin/messages.can not uploaded')}},
-            dictCancelUpload: {{__('admin/messages.cancel uploading')}},
-            dictCancelUploadConfirmation: {{__('admin/messages.uploaded message')}} "  ",
-            dictRemoveFile: {{__('admin/messages.remove image')}} ,
-            dictMaxFilesExceeded: {{__('admin/messages.big count')}} ,
+            dictFallbackMessage: "{{__('admin/messages.website not supported')}}",
+            dictInvalidFileType: "{{__('admin/messages.can not uploaded')}}",
+            dictCancelUpload: "{{__('admin/messages.cancel uploading')}}",
+            dictCancelUploadConfirmation: "{{__('admin/messages.uploaded message')}}",
+            dictRemoveFile: "{{__('admin/messages.remove image')}}" ,
+            dictMaxFilesExceeded: "{{__('admin/messages.big count')}}" ,
             headers: {
                 'X-CSRF-TOKEN':
                     "{{ csrf_token() }}"

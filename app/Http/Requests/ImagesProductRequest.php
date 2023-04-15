@@ -33,12 +33,8 @@ class ImagesProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'sku.min'               => __('admin/messages.min sku'),
-            'sku.max'               => __('admin/messages.max sku'),
             'product_id.required'   => __('admin/messages.required product_id'),
             'document.required' => __('admin/messages.required document'),
-            'in_stock.required'     => __('admin/messages.required in_stock'),
-            'qty.required_if'       => __('admin/messages.required_if qty'),
         ];
     }
 }

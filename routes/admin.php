@@ -120,6 +120,14 @@ Route::group([
         });
         ################################  End Options   ################################
 
+        ############################### Slider Routes #################################
+        Route::group(['prefix' => 'slider'], function (){
+            Route::get('/', 'SliderController@addImages')->name('admin.slider.create');
+            Route::post('images', 'SliderController@saveSliderImages')->name('admin.slider.images.store');
+            Route::post('images/db', 'SliderController@saveSliderImagesDB')->name('admin.slider.images.store.db');
+        });
+        ################################  End Slider   ################################
+
     });
 
     Route::group(['prefix' => 'admin', 'namespace' => 'Dashboard', 'middleware' => 'guest:admin'], function () {
