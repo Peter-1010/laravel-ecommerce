@@ -63,6 +63,10 @@ class Product extends Model
         return $this->hasMany(Option::class, 'product_id');
     }
 
+    public function images(){
+        return $this->hasMany(Image::class, 'product_id');
+    }
+
     public function getActive(){
         return $this->is_active == 0 ? __('admin/products.not active') : __('admin/products.active');
     }

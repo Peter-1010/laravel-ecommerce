@@ -32,4 +32,12 @@ class User extends Authenticatable
         return $this->hasMany(UserVerification::class, 'user_id');
     }
 
+    public function wishList(){
+        return $this->belongsToMany(Product::class, 'wish_lists')->withTimestamps();
+    }
+
+    public function wishListHas($product_id){
+        return self::wishList()->where('product_id', $product_id)->exists();
+    }
+
 }

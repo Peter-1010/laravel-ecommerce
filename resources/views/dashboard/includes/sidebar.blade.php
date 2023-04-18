@@ -118,6 +118,21 @@
                 </ul>
             </li>
 
+            <li class="nav-item"><a href=""><i class="la la-magic"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.roles')}}</span>
+                    <span
+                        class="badge badge badge-warning  badge-pill float-right mr-2">{{\App\Models\Role::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{route('admin.roles.index')}}"
+                                          data-i18n="nav.dash.ecommerce">{{__('admin/sidebar.view all')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.roles.create')}}"
+                           data-i18n="nav.dash.crypto">{{__('admin/sidebar.add new role')}}</a>
+                    </li>
+                </ul>
+            </li>
+
 
             <li class="nav-item"><a href=""><i class="la la-check-circle"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.options')}}</span>

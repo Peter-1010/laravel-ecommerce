@@ -71,6 +71,15 @@
             {{getDirection()}}: -74.5px!important;
         }
 
+        .p_lang{
+            padding-{{getDirectionReverse()}}: 2rem!important;
+        }
+
+        .close{
+            position: absolute;
+            {{getDirectionReverse()}}: 6px!important;
+        }
+
         @media (min-width: 768px){
             .offset-md-2 {
                 margin-{{getDirection()}}: 16.666667%!important;

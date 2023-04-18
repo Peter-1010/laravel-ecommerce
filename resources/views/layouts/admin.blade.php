@@ -125,6 +125,23 @@
 <script src="{{asset('assets/admin/js/scripts/modal/components-modal.js')}}" type="text/javascript"></script>
 
 <script>
+    var previousCounter = $('.notification-counter').text(); //8
+    var notificationsCount = parseInt(previousCounter);
+    // Enable pusher logging - don't include this in production
+    var pusher = new Pusher('2203df2757e00ac59e6d', {
+        encrypted: true
+    });
+    //Pusher.logToConsole = true;
+    // Subscribe to the channel we specified in our Laravel Event
+    var channel = pusher.subscribe('order');
+    // Bind a function to a Our Event
+    channel.bind('App\\Events\\NewOrder', function(data) {
+        notificationsCount += 1;
+        $('.notification-counter').text(notificationsCount)
+    });
+</script>
+
+<script>
     $('#meridians1').timeDropper({
         meridians: true,
         setCurrentTime: false

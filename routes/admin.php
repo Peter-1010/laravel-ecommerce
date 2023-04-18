@@ -128,6 +128,17 @@ Route::group([
         });
         ################################  End Slider   ################################
 
+        ############################### Roles Routes #################################
+        Route::group(['prefix' => 'roles'], function (){
+            Route::get('/', 'RoleController@index')->name('admin.roles.index');
+            Route::get('create', 'RoleController@create')->name('admin.roles.create');
+            Route::post('store', 'RoleController@store')->name('admin.roles.store');
+            Route::get('edit/{id}', 'RoleController@edit')->name('admin.roles.edit');
+            Route::post('update/{id}', 'RoleController@update')->name('admin.roles.update');
+            Route::get('delete/{id}', 'RoleController@destroy')->name('admin.roles.delete');
+        });
+        ################################  End Roles   ################################
+
     });
 
     Route::group(['prefix' => 'admin', 'namespace' => 'Dashboard', 'middleware' => 'guest:admin'], function () {

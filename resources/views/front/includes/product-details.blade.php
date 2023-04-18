@@ -1,4 +1,4 @@
-<div id="" class="modal fade quickview in quickview-modal-product-details-{{$product -> id}}" tabindex="-1" role="dialog" style="display: hidden;">
+<div id="" class="direction_lang modal fade quickview in quickview-modal-product-details-{{$product -> id}}" tabindex="-1" role="dialog" style="display: hidden;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,10 +6,10 @@
             </div>
             <div class="modal-body">
                 <div class="row no-gutters">
-                    <div class="col-md-5 col-sm-5 divide-right">
+                    <div class="col-md-5 col-sm-5 p_lang">
                         <div class="images-container bottom_thumb">
                             <div class="product-cover">
-                                <img class="js-qv-product-cover img-fluid" src="{{$product -> images[0] -> photo ?? ''}}" alt="" title="" style="width:100%;" itemprop="image">
+                                <img class="js-qv-product-cover img-fluid" src="{{asset('assets/images/products') . '/'}}{{$product -> images[0] -> photo ?? ''}}" alt="" title="" style="width:100%;" itemprop="image">
                                 <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
                                     <i class="fa fa-expand"></i>
                                 </div>
@@ -59,9 +59,9 @@
 
                                     <div class="clearfix"></div>
 
-                                    <div id="product-availability" class="info-stock mt-20">
-                                        <label class="control-label">Availability:</label>
-                                        {{$product -> in_stock ? 'in stock' : 'out of stock'}}
+                                     <div id="product-availability" class="info-stock mt-20">
+                                         <label class="control-label">{{__('admin/products.product status')}} :</label>
+                                         {{$product -> in_stock ? __('admin/products.in stock') : __('admin/products.out of stock')}}
                                      </div>
                                     <p class="product-minimal-quantity mt-20">
                                     </p>

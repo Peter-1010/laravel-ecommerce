@@ -1,4 +1,4 @@
-<div class="modal fade in not-loggedin-modal" style="display: none; padding-right: 17px;">
+<div class="modal fade in not-loggedin-modal p_lang" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,7 +6,7 @@
                     <i class="material-icons close">close</i>
                 </button>
             </div>
-            <div class="modal-body">You must be logged in to manage your wishlist.</div>
+            <div class="modal-body">{{__('site/messages.wishlist log in')}}</div>
         </div>
     </div>
 </div>

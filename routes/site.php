@@ -20,12 +20,21 @@ Route::group([
 
     Auth::routes();
 
-    Route::get('/', 'Site\HomeController@home')->name('home');
 
-    Route::group(['namespace' => 'Site', 'middleware' => 'guest'], function () {
+    Route::group(['namespace' => 'Site'], function () {
 
-        Route::get('category/{cat-name}', 'HomeController@home')->name('category');
+        Route::get('/', 'HomeController@home')->name('home');
+        Route::get('category/{slug}', 'CategoryController@productsBySlug')->name('category');
+        Route::get('product/{id}', 'ProductController@productsBySlug')->name('products.details');
 
+        Route::group(['prefix' => 'cart'], function () {
+
+            Route::get('/', 'CartController@index')->name('cart.index');
+            Route::post('add/{slug?}', 'CartController@add')->name('cart.add');
+            Route::post('update/{slug?}', 'CartController@update')->name('cart.update');
+            Route::post('update-all/{slug}', 'CartController@updateAll')->name('cart.update.all');
+
+        });
     });
 
 
@@ -34,9 +43,7 @@ Route::group([
         'middleware' => ['auth', 'verifyUser']
     ], function () {
 
-        Route::get('/test', function () {
-            return 'verified';
-        });
+
 
     });
 
@@ -44,10 +51,20 @@ Route::group([
 
         Route::post('verified-user', 'VerificationCodeController@verify')->name('verified.user');
         Route::get('verify', 'VerificationCodeController@getVerifyPage')->name('verification');
+        Route::get('products/{productId}/reviews', 'ProductReviewController@index')->name('products.reviews.index');
+        Route::post('products/{productId}/reviews', 'ProductReviewController@store')->name('products.reviews.store');
+        Route::get('payment/{amount}', 'PaymentController@getPayments') -> name('payment');
+        Route::post('payment', 'PaymentController@processPayment') -> name('payment.process');
 
     });
 
 
+});
 
+Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
+
+    Route::post('wishlist', 'WishlistController@store')->name('wishlist.store');
+    Route::delete('wishlist', 'WishlistController@destroy')->name('wishlist.destroy');
+    Route::get('wishlist/products', 'WishlistController@index')->name('wishlist.products.index');
 
 });

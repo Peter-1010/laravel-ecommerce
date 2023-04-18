@@ -6,7 +6,7 @@
                     <i class="material-icons close">close</i>
                 </button>
             </div>
-            <div class="modal-body text-center"> this product added before to favourite list </div>
+            <div class="modal-body text-center"> {{__('site/messages.wishlist added before')}} </div>
         </div>
     </div>
 </div>

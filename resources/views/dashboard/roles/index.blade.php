@@ -1,18 +1,18 @@
-@extends('layouts.admin')
 
+@extends('layouts.admin')
 @section('content')
+
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> {{__('admin/sidebar.brands')}} </h3>
+                    <h3 class="content-header-title">الصلاحيات </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a
-                                        href="{{route('admin.dashboard')}}">{{__('admin/edit.main')}} </a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{__('admin/sidebar.brands')}}
+                                <li class="breadcrumb-item active">الصلاحيات
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{__('admin/brands.all brands')}} </h4>
+                                    <h4 class="card-title"> جميع الصلاحيات </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -41,33 +41,38 @@
 
                                 @include('dashboard.includes.alerts.success')
                                 @include('dashboard.includes.alerts.errors')
+
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <table
-                                            class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                            class="table display nowrap table-striped table-bordered">
                                             <thead class="">
                                             <tr>
-                                                <th>{{__('admin/brands.name')}}</th>
-                                                <th>{{__('admin/brands.status')}} </th>
-                                                <th>{{__('admin/brands.brand image')}}</th>
-                                                <th>{{__('admin/brands.procedures')}}</th>
+                                                <th>الاسم</th>
+                                                <th>الصلاحيات</th>
+                                                <th>الإجراءات</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @isset($brands)
-                                                @foreach($brands as $brand)
+                                            @isset($roles)
+                                                @foreach($roles as $role)
                                                     <tr>
-                                                        <td>{{$brand -> name}}</td>
-                                                        <td>{{$brand -> getActive()}}</td>
-                                                        <td><img style="width: 150px; height: 100px;" src="{{$brand->photo}}"></td>
+                                                        <td>{{$role -> name}}</td>
+
+                                                        <td>
+                                                            @foreach($role -> permissions as $permission)
+                                                                {{$permission}} ,
+                                                            @endforeach
+
+                                                        </td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('admin.brands.edit',$brand -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('admin/brands.edit')}}</a>
+                                                                <a href="{{route('admin.roles.edit',$role -> id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل </a>
 
-                                                                <a href="{{route('admin.brands.delete',$brand -> id)}}"
+                                                                <a href="{{route('admin.roles.delete',$role -> id)}}"
                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">{{__('admin/brands.delete')}}</a>
                                                             </div>
                                                         </td>
@@ -86,8 +91,10 @@
                             </div>
                         </div>
                     </div>
+
                 </section>
             </div>
         </div>
     </div>
+
 @stop
