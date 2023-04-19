@@ -83,7 +83,6 @@ return [
             ]) : [],
         ],
 
-
         'landlord' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),

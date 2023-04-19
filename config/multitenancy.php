@@ -9,7 +9,7 @@ use Spatie\Multitenancy\Actions\MakeQueueTenantAwareAction;
 use Spatie\Multitenancy\Actions\MakeTenantCurrentAction;
 use Spatie\Multitenancy\Actions\MigrateTenantAction;
 use Spatie\Multitenancy\Models\Tenant;
-use Spatie\Multitenancy\Tasks\SwitchTenantTask;
+use Spatie\Multitenancy\Tasks\SwitchTenantDatabaseTask;
 use Spatie\Multitenancy\TenantFinder\DomainTenantFinder;
 
 return [
@@ -36,7 +36,7 @@ return [
      */
     'switch_tenant_tasks' => [
         // add tasks here
-        SwitchTenantTask::class
+        SwitchTenantDatabaseTask::class
     ],
 
     /*
