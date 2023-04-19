@@ -34,6 +34,9 @@ return [
     'add new option'         => 'اضافة قيمة جديدة',
     'slider'                 => 'الاسليدر',
     'slider images'          => 'صور الاسليدر',
-
+    'roles'                  => 'الصلاحيات',
+    'add new role'           => 'اضافة صلاحية جديدة',
+    'roles users'            => 'مستخدمين لوحة التحكم',
+    'add new role user'      => 'اضافة مستخدم جديد',
 
 ];

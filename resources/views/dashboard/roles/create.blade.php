@@ -7,12 +7,13 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">الرئيسية </a>
+                                <li class="breadcrumb-item"><a
+                                        href="{{route('admin.dashboard')}}">{{__('admin/edit.main')}} </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="">
-                                        الصلالحيات </a>
+                                <li class="breadcrumb-item"><a
+                                        href="{{route('admin.roles.index')}}"> {{__('admin/sidebar.roles')}} </a>
                                 </li>
-                                <li class="breadcrumb-item active"> أضافه صلاحيه
+                                <li class="breadcrumb-item active"> {{__('admin/sidebar.add new role')}}
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> أضافة صلاحية جديد </h4>
+                                    <h4 class="card-title" id="basic-layout-form">{{__('admin/sidebar.add new role')}}</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -48,11 +49,11 @@
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> البيانات الاساسية للصلاحية </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> {{__('admin/roles.role details')}} </h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> اسم الصلاحية
+                                                            <label for="projectinput1">{{__('admin/roles.role name')}}
                                                             </label>
                                                             <input type="text" id="name"
                                                                    class="form-control"
@@ -80,12 +81,12 @@
                                                         </div>
                                             </div>
                                             <div class="form-actions">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="la la-check-square-o"></i> {{__('admin/brands.create button')}}
+                                                </button>
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
-                                                    <i class="ft-x"></i> تراجع
-                                                </button>
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> تحديث
+                                                    <i class="ft-x"></i> {{__('admin/brands.retreat')}}
                                                 </button>
                                             </div>
                                         </form>

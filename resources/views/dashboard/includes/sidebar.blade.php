@@ -71,6 +71,7 @@
                 </ul>
             </li>
 
+            @can('tags')
             <li class="nav-item"><a href=""><i class="la la-tags"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.tags')}}</span>
                     <span
@@ -85,8 +86,9 @@
                     </li>
                 </ul>
             </li>
+            @endcan
 
-
+            @can('products')
             <li class="nav-item"><a href=""><i class="la la-shopping-cart"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.products')}}</span>
                     <span
@@ -101,6 +103,7 @@
                     </li>
                 </ul>
             </li>
+            @endcan
 
 
             <li class="nav-item"><a href=""><i class="la la-database"></i>
@@ -118,7 +121,22 @@
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-magic"></i>
+            <li class="nav-item"><a href=""><i class="la la-check-circle"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.options')}}</span>
+                    <span
+                        class="badge badge badge-warning  badge-pill float-right mr-2">{{\App\Models\Option::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{route('admin.options')}}"
+                                          data-i18n="nav.dash.ecommerce">{{__('admin/sidebar.view all')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.options.create')}}"
+                           data-i18n="nav.dash.crypto">{{__('admin/sidebar.add new option')}}</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href="#"><i class="la la-key"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.roles')}}</span>
                     <span
                         class="badge badge badge-warning  badge-pill float-right mr-2">{{\App\Models\Role::count()}}</span>
@@ -133,18 +151,17 @@
                 </ul>
             </li>
 
-
-            <li class="nav-item"><a href=""><i class="la la-check-circle"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.options')}}</span>
+            <li class="nav-item"><a href="#"><i class="la la-users"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.roles users')}}</span>
                     <span
-                        class="badge badge badge-warning  badge-pill float-right mr-2">{{\App\Models\Option::count()}}</span>
+                        class="badge badge badge-warning  badge-pill float-right mr-2">{{\App\Models\Role::count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{route('admin.options')}}"
+                    <li class="active"><a class="menu-item" href="{{route('admin.users.index')}}"
                                           data-i18n="nav.dash.ecommerce">{{__('admin/sidebar.view all')}}</a>
                     </li>
-                    <li><a class="menu-item" href="{{route('admin.options.create')}}"
-                           data-i18n="nav.dash.crypto">{{__('admin/sidebar.add new option')}}</a>
+                    <li><a class="menu-item" href="{{route('admin.users.create')}}"
+                           data-i18n="nav.dash.crypto">{{__('admin/sidebar.add new role user')}}</a>
                     </li>
                 </ul>
             </li>

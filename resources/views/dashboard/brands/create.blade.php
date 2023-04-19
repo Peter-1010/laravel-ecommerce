@@ -52,14 +52,14 @@
                                               enctype="multipart/form-data">
                                             @csrf
 
-{{--                                            <div class="form-group">--}}
-{{--                                                <div class="text-center">--}}
-{{--                                                    <img--}}
-{{--                                                        src=""--}}
-{{--                                                        class="rounded-circle  height-150"--}}
-{{--                                                        alt="{{__('admin/categories.category image')}}">--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
+                                            {{--                                            <div class="form-group">--}}
+                                            {{--                                                <div class="text-center">--}}
+                                            {{--                                                    <img--}}
+                                            {{--                                                        src=""--}}
+                                            {{--                                                        class="rounded-circle  height-150"--}}
+                                            {{--                                                        alt="{{__('admin/categories.category image')}}">--}}
+                                            {{--                                                </div>--}}
+                                            {{--                                            </div>--}}
 
 
                                             <div class="form-group">
@@ -92,46 +92,47 @@
                                                         </div>
                                                     </div>
 
-{{--                                                    <div class="col-md-6">--}}
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <label for="slug"> {{__('admin/categories.slug')}}</label>--}}
-{{--                                                            <input type="text" id="slug"--}}
-{{--                                                                   class="form-control"--}}
-{{--                                                                   value="{{old('slug')}}"--}}
-{{--                                                                   name="slug">--}}
-{{--                                                            @error("slug")--}}
-{{--                                                            <span class="text-danger">{{$message}}</span>--}}
-{{--                                                            @enderror--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
+                                                    {{--                                                    <div class="col-md-6">--}}
+                                                    {{--                                                        <div class="form-group">--}}
+                                                    {{--                                                            <label for="slug"> {{__('admin/categories.slug')}}</label>--}}
+                                                    {{--                                                            <input type="text" id="slug"--}}
+                                                    {{--                                                                   class="form-control"--}}
+                                                    {{--                                                                   value="{{old('slug')}}"--}}
+                                                    {{--                                                                   name="slug">--}}
+                                                    {{--                                                            @error("slug")--}}
+                                                    {{--                                                            <span class="text-danger">{{$message}}</span>--}}
+                                                    {{--                                                            @enderror--}}
+                                                    {{--                                                        </div>--}}
+                                                    {{--                                                    </div>--}}
+                                                    {{--                                                </div>--}}
 
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group mt-1">
-                                                            <input type="checkbox" value="1"
-                                                                   name="is_active"
-                                                                   id="switcheryColor4"
-                                                                   class="switchery" data-color="success"
-                                                            checked/>
-                                                            <label for="switcheryColor4"
-                                                                   class="card-title ml-1">{{__('admin/brands.status')}}</label>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group mt-1">
+                                                                <input type="checkbox" value="1"
+                                                                       name="is_active"
+                                                                       id="switcheryColor4"
+                                                                       class="switchery" data-color="success"
+                                                                       checked/>
+                                                                <label for="switcheryColor4"
+                                                                       class="card-title ml-1">{{__('admin/brands.status')}}</label>
 
-                                                            @error("is_active")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
+                                                                @error("is_active")
+                                                                <span class="text-danger">{{$message}}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-actions">
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> {{__('admin/brands.create button')}}
-                                                </button>
-                                                <button type="button" class="btn btn-warning mr-1"
-                                                        onclick="history.back();">
-                                                    <i class="ft-x"></i> {{__('admin/brands.retreat')}}
-                                                </button>
+                                                <div class="form-actions">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="la la-check-square-o"></i> {{__('admin/brands.create button')}}
+                                                    </button>
+                                                    <button type="button" class="btn btn-warning mr-1"
+                                                            onclick="history.back();">
+                                                        <i class="ft-x"></i> {{__('admin/brands.retreat')}}
+                                                    </button>
+                                                </div>
                                             </div>
                                         </form>
 
